@@ -4,19 +4,23 @@ var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
   //prompt user for password characteristics
-  var numCharacters  = prompt("Choose a number between 8 and 128 for the amount of characters to use in your password.")
   
   //alerts user if character selection does not meet criteria before moving to next prompt.
-  //possibly set a variable here to verify numCharacters is an integer (i.e. parseInt(numCharacters))
-  if(isNaN(numCharacters)) {
-    alert(numCharacters + " is not a number!")
-    numCharacters = prompt("Choose a number between 8 and 128 for the amount of characters to use in your password.")
-    return;
-  }
-  if(numCharacters < 8 || numCharacters > 128) {
-    alert("Please input a number between 8 and 128!")
-    numCharacters = prompt("Choose a number between 8 and 128 for the amount of characters to use in your password.")
-    return;
+  while (true) {
+    var numCharacters  = prompt("Choose a number between 8 and 128 for the amount of characters to use in your password.")
+
+    //condition if user Cancels the prompt
+    if(numCharacters === null) {
+      return "Canceled password generation";
+    }
+
+    if(isNaN(numCharacters)) {
+      alert(numCharacters + " is not a number!")
+    } else if(numCharacters < 8 || numCharacters > 128) {
+      alert("Please input a number between 8 and 128!")
+    } else {
+      break;
+    }
   }
 
   var useLowerCase   = confirm("Would you like lower case letters in your password?")
