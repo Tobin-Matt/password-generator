@@ -4,18 +4,19 @@ var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
   //prompt user for password characteristics
-  var numCharacters  = prompt("How many number of characters would you like your password to be?")
+  var numCharacters  = prompt("Choose a number between 8 and 128 for the amount of characters to use in your password.")
   
-  //validate the variable is a number within range
+  //alerts user if character selection does not meet criteria before moving to next prompt.
   //possibly set a variable here to verify numCharacters is an integer (i.e. parseInt(numCharacters))
   if(isNaN(numCharacters)) {
     alert(numCharacters + " is not a number!")
-    numCharacters = prompt("How many number of characters would you like your password to be?")
+    numCharacters = prompt("Choose a number between 8 and 128 for the amount of characters to use in your password.")
+    return;
   }
   if(numCharacters < 8 || numCharacters > 128) {
     alert("Please input a number between 8 and 128!")
-    numCharacters = prompt("How many number of characters would you like your password to be?")
-    // return;
+    numCharacters = prompt("Choose a number between 8 and 128 for the amount of characters to use in your password.")
+    return;
   }
 
   var useLowerCase   = confirm("Would you like lower case letters in your password?")
@@ -30,11 +31,8 @@ function generatePassword() {
   var specialChar = "!@#$%&";
 
   // I want an array that is filled with the user's choices
-  var userCombination = [];
+  var userCombination = [lowerCase];
   
-    if(useLowerCase) {
-      userCombination.push(lowerCase)
-    }
     if(useUpperCase) {
       userCombination.push(upperCase)
     }
@@ -56,7 +54,7 @@ function generatePassword() {
     securePassword += storedIndex[Math.floor(Math.random() * storedIndex.length)]
   }
 
-  console.log(securePassword)
+  return generatePassword = securePassword
 }
 
 // Write password to the #password input
