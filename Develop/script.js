@@ -1,7 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
 function generatePassword() {
   //prompt user for password characteristics
   
@@ -34,7 +33,7 @@ function generatePassword() {
   var numbers     = "0123456789";
   var specialChar = "!@#$%&";
 
-  // I want an array that is filled with the user's choices
+  // build a single array that is filled based on the user's choices
   var userCombination = [lowerCase];
   
     if(useUpperCase) {
@@ -48,13 +47,13 @@ function generatePassword() {
     }
     
   var securePassword = " ";
-  //loop to generate one random character at a time until filled the users number choice
+  //loop to generate one random character at a time until filled the users choice for number of characters
   for(var i = 0; i < numCharacters; i++) {
-    //create variable to randomly select one of the arrays in userCombination
+    //create variable to randomly select one of the characteristic arrays from userCombination
     var selectCharacterIndex = Math.floor(Math.random() * userCombination.length)
-    //store the randomly selected array and its index in securePassword
+    //store the randomly selected array and target it's index in securePassword
     var storedIndex = userCombination[selectCharacterIndex]
-    //randomly select a character from the character array and add that to the length of the generated password
+    //randomly select a character from the characteristic array and add that to the length of the generated password
     securePassword += storedIndex[Math.floor(Math.random() * storedIndex.length)]
   }
 
@@ -67,7 +66,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
