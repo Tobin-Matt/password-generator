@@ -26,5 +26,5 @@ options:
 ![](./Assets/_C__Users_mattt_bootcamp_git-hub-repos_password-generator_Develop_index.html.png)
 
 ## Project URLs
-* Deployed site URL: 
-* GitHub Repo URL:
+* Deployed site URL: https://tobin-matt.github.io/password-generator/
+* GitHub Repo URL: https://github.com/Tobin-Matt/password-generator
